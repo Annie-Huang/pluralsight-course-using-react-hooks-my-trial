@@ -48,6 +48,12 @@ useRef - Primarily used to allow access directly to an element in the DOM.
 useEffect - use for componentWillUnmount, componentDidUnmount. React Hook useEffect causes side effects.
 useState, is built on top of useReducer with a very thin layer between them.
 
+useCallback and useMemo. They are both used to memorize, with useCallback, memoizing a function, and use useMemo, doing the same for a value. ... The Hook useCallback caches a function and useMemo caches a value.
+https://en.wikipedia.org/wiki/Memoization:
+In computing, memoization or memoisation is an optimization technique used primarily to speed up computer programs
+by storing the results of expensive function calls and returning the cached result when the same inputs occur again.
+
+
 http://localhost:3000/
 http://localhost:3000/ImageChangeOnMouseOver
 http://localhost:3000/ImageChangeOnScroll

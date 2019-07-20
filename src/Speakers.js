@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext, useReducer} from "react";
+import React, {useState, useEffect, useContext, useReducer, useCallback} from "react";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../static/site.css";
@@ -79,7 +79,27 @@ const Speakers = ({}) => {
         setSpeakingSunday(!speakingSunday);
     };
 
-    const heartFavoriteHandler = (e, favoriteValue) => {
+    // const heartFavoriteHandler = (e, favoriteValue) => {
+    //     e.preventDefault();
+    //     const sessionId = parseInt(e.target.attributes["data-sessionid"].value);
+    //     // setSpeakerList(speakerList.map(item => {
+    //     //     if (item.id === sessionId) {
+    //     //         item.favorite = favoriteValue;
+    //     //         return item;
+    //     //     }
+    //     //     return item;
+    //     // }));
+    //     // 5: switch to dispatch - part 2
+    //     //    It works because when clicking the color of the heart, its colors stays.
+    //     dispatch({
+    //         type: favoriteValue ? "favorite" : "unfavorite",
+    //         sessionId
+    //     })
+    //
+    //     //console.log("changing session favorte to " + favoriteValue);
+    // };
+    // B: Solution - use useCallback
+    const heartFavoriteHandler = useCallback((e, favoriteValue) => {
         e.preventDefault();
         const sessionId = parseInt(e.target.attributes["data-sessionid"].value);
         // setSpeakerList(speakerList.map(item => {
@@ -97,10 +117,14 @@ const Speakers = ({}) => {
         })
 
         //console.log("changing session favorte to " + favoriteValue);
-    };
+    }, []);
 
     if (isLoading) return <div>Loading...</div>;
 
+
+    // A: Problem - If we look how we call the heartFavoriteHandler, notice that every time the page renders,
+    // we pass the handler to the speaker detail page. React doesn't know that that function is not changing,
+    // so it rerenders that component again, just in case.
     return (
         <div>
             <Header/>

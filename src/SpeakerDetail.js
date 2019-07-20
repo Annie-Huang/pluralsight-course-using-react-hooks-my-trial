@@ -8,7 +8,11 @@ const SpeakerDetail = ({
                            bio,
                            onHeartFavoriteHandler
                        }) => {
-    //console.log(`SpeakerDetail:${id} ${firstName} ${lastName} ${favorite}`);
+
+    // Turns out our React program behind the scenes is not just updating the heart on our speaker image,
+    // but turns out it's rerendering all speaker images, including all hearts, light and dark.
+    console.log(`SpeakerDetail:${id} ${firstName} ${lastName} ${favorite}`);
+
     return (
         <div className="card col-4 cardmin">
             <ImageToggleOnScroll
