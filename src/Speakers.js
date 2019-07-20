@@ -26,9 +26,33 @@ const Speakers = ({}) => {
     // 3: Further change to a reducer like logic...
     //    You can think of this as useState is just useReducer with only a default action type.
     function speakerReducer(state, action) {
+        // action has:
+        // {
+        //     type:
+        //     data:
+        //     sessionId
+        // }
+
+
+        // inner function??? =|
+        function updateFavorite(favoriteValue) {
+            return state.map((item, index) => {
+                if (item.id === action.sessionId) {
+                    item.favorite = favoriteValue;
+                    return item;
+                }
+                return item;
+            });
+        }
         switch (action.type) {
-            case "setSpeakerList" : {
+            case "setSpeakerList": {
                 return action.data;
+            }
+            case "favorite": {
+                return updateFavorite(true);
+            }
+            case "unfavorite": {
+                return updateFavorite(false);
             }
             default:
                 return state;
@@ -36,7 +60,6 @@ const Speakers = ({}) => {
         // return action;
     }
     const [speakerList, dispatch] = useReducer(speakerReducer, []);
-
 
 
     const [isLoading, setIsLoading] = useState(true);
@@ -56,7 +79,7 @@ const Speakers = ({}) => {
             });
 
             // setSpeakerList(speakerListServerFilter);
-            // 4: switch to dispatch
+            // 4: switch to dispatch - part 1
             dispatch({
                 type: "setSpeakerList",
                 data: speakerListServerFilter
@@ -94,13 +117,19 @@ const Speakers = ({}) => {
     const heartFavoriteHandler = (e, favoriteValue) => {
         e.preventDefault();
         const sessionId = parseInt(e.target.attributes["data-sessionid"].value);
-        setSpeakerList(speakerList.map(item => {
-            if (item.id === sessionId) {
-                item.favorite = favoriteValue;
-                return item;
-            }
-            return item;
-        }));
+        // setSpeakerList(speakerList.map(item => {
+        //     if (item.id === sessionId) {
+        //         item.favorite = favoriteValue;
+        //         return item;
+        //     }
+        //     return item;
+        // }));
+        // 5: switch to dispatch - part 2
+        dispatch({
+            type: favoriteValue ? "favorite" : "unfavorite",
+            sessionId
+        })
+
         //console.log("changing session favorte to " + favoriteValue);
     };
 
