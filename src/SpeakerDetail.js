@@ -1,6 +1,10 @@
 import ImageToggleOnScroll from "./ImageToggleOnScroll";
 
-const SpeakerDetail = ({
+// C: Solution - When we define our speaker detail for export, we wrap our functional component in React.memo,
+// and now that returns a cache, or a memoized version of our SpeakerDetail component to the calling component.
+// Now browsing to the page again, favoring a speaker, look at that, only one speaker detail is rendered.
+// const SpeakerDetail = ({
+const SpeakerDetail = React.memo( ({
                            id,
                            firstName,
                            lastName,
@@ -39,6 +43,7 @@ const SpeakerDetail = ({
             </div>
         </div>
     );
-};
+//};
+});
 
 export default SpeakerDetail;
