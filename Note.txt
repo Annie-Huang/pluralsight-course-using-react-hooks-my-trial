@@ -7,6 +7,7 @@ https://reactjs.org/docs/create-a-new-react-app.html
 https://app.pluralsight.com/library/courses/building-server-side-rendered-react-apps-beginners/table-of-contents
 
 https://nextjs.org/learn/basics/getting-started
+https://nextjs.org/learn/basics/getting-started/setup
 
 lecture note: C:\react\using-react-hooks
 
@@ -19,8 +20,19 @@ If you’re building a server-rendered website with Node.js, try Next.js.		<<<<<
 If you’re building a static content-oriented website, try Gatsby.
 If you’re building a component library or integrating with an existing codebase, try More Flexible Toolchains.
 
+------
 
+mkdir hello-next
+cd hello-next
+npm init -y
+npm install --save react react-dom next
+mkdir pages
 
+-----------
+
+C:\react\pluralsight-course-using-react-hooks-my-trial>npm init -y
+C:\react\pluralsight-course-using-react-hooks-my-trial>npm install --save react react-dom next
+C:\react\pluralsight-course-using-react-hooks-my-trial>mkdir pages
 
 
 

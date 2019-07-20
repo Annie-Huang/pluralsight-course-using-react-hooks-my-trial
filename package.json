@@ -1,0 +1,25 @@
+{
+  "name": "pluralsight-course-using-react-hooks-my-trial",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Annie-Huang/pluralsight-course-using-react-hooks-my-trial.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Annie-Huang/pluralsight-course-using-react-hooks-my-trial/issues"
+  },
+  "homepage": "https://github.com/Annie-Huang/pluralsight-course-using-react-hooks-my-trial#readme",
+  "dependencies": {
+    "next": "^9.0.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}
