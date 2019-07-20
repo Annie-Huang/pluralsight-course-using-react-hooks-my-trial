@@ -13,12 +13,12 @@ const ImageToggleOnScroll = ({primaryImg, secondaryImg}) => {
         setInView(isInView());
 
         setIsLoading(false);
-        return(() => {
+        return (() => {
             window.removeEventListener('scroll', scrollHandler);
         });
     }, [isLoading]);
 
-    const[inView, setInView] = useState(false);
+    const [inView, setInView] = useState(false);
 
     // Check whether the a image is in view of a window.
     const isInView = () => {
