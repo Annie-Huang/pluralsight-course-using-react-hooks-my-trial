@@ -1,0 +1,71 @@
+https://app.pluralsight.com/library/courses/using-react-hooks/table-of-contents
+https://github.com/pkellner/pluralsight-course-using-react-hooks
+
+https://reactjs.org/docs/getting-started.html
+https://reactjs.org/docs/create-a-new-react-app.html
+
+https://app.pluralsight.com/library/courses/building-server-side-rendered-react-apps-beginners/table-of-contents
+
+https://nextjs.org/learn/basics/getting-started
+
+lecture note: C:\react\using-react-hooks
+
+==============================================================
+Recommended Toolchains
+The React team primarily recommends these solutions:
+
+If you’re learning React or creating a new single-page app, use Create React App.
+If you’re building a server-rendered website with Node.js, try Next.js.		<<<<<<<<<<< we will use this one.
+If you’re building a static content-oriented website, try Gatsby.
+If you’re building a component library or integrating with an existing codebase, try More Flexible Toolchains.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
