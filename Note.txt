@@ -28,6 +28,12 @@ npm init -y
 npm install --save react react-dom next
 mkdir pages
 
+"scripts": {
+  "dev": "next",
+  "build": "next build",
+  "start": "next start"
+}
+
 -----------
 
 C:\react\pluralsight-course-using-react-hooks-my-trial>npm init -y
