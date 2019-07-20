@@ -7,6 +7,7 @@ import {Menu} from "../src/Menu";
 import SpeakerData from "./SpeakerData";
 import SpeakerDetail from "./SpeakerDetail";
 import {ConfigContext} from "./App";
+import speakerReducer from "./speakerReducer";
 
 const Speakers = ({}) => {
     const [speakingSaturday, setSpeakingSaturday] = useState(true);
@@ -23,42 +24,6 @@ const Speakers = ({}) => {
     // }
     // const [speakerList, setSpeakerList] = useReducer(speakerReducer, []);
 
-    // 3: Further change to a reducer like logic...
-    //    You can think of this as useState is just useReducer with only a default action type.
-    function speakerReducer(state, action) {
-        // action has:
-        // {
-        //     type:
-        //     data:
-        //     sessionId
-        // }
-
-
-        // inner function??? =|
-        function updateFavorite(favoriteValue) {
-            return state.map((item, index) => {
-                if (item.id === action.sessionId) {
-                    item.favorite = favoriteValue;
-                    return item;
-                }
-                return item;
-            });
-        }
-        switch (action.type) {
-            case "setSpeakerList": {
-                return action.data;
-            }
-            case "favorite": {
-                return updateFavorite(true);
-            }
-            case "unfavorite": {
-                return updateFavorite(false);
-            }
-            default:
-                return state;
-        }
-        // return action;
-    }
     const [speakerList, dispatch] = useReducer(speakerReducer, []);
 
 
@@ -125,6 +90,7 @@ const Speakers = ({}) => {
         //     return item;
         // }));
         // 5: switch to dispatch - part 2
+        //    It works because when clicking the color of the heart, its colors stays.
         dispatch({
             type: favoriteValue ? "favorite" : "unfavorite",
             sessionId
