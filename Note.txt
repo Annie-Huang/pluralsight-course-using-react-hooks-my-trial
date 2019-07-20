@@ -51,6 +51,7 @@ useEffect - use for componentWillUnmount, componentDidUnmount. React Hook useEff
 http://localhost:3000/
 http://localhost:3000/ImageChangeOnMouseOver
 http://localhost:3000/ImageChangeOnScroll
+http://localhost:3000/speakers
 
 
 https://reactjs.org/docs/hooks-rules.html
