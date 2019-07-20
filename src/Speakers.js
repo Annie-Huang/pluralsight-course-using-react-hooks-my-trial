@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext} from "react";
+import React, {useState, useEffect, useContext, useReducer} from "react";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../static/site.css";
@@ -12,7 +12,33 @@ const Speakers = ({}) => {
     const [speakingSaturday, setSpeakingSaturday] = useState(true);
     const [speakingSunday, setSpeakingSunday] = useState(true);
 
-    const [speakerList, setSpeakerList] = useState([]);
+    // const [speakerList, setSpeakerList] = useState([]);
+
+    // 1: The blow is exactly the same as above...
+    // const [speakerList, setSpeakerList] = useReducer((state,action) => action, []);
+
+    // // 2: Change "(state, action) => action" to...
+    // function speakerReducer(state, action) {
+    //     return action;
+    // }
+    // const [speakerList, setSpeakerList] = useReducer(speakerReducer, []);
+
+    // 3: Further change to a reducer like logic...
+    //    You can think of this as useState is just useReducer with only a default action type.
+    function speakerReducer(state, action) {
+        switch (action.type) {
+            case "setSpeakerList" : {
+                return action.data;
+            }
+            default:
+                return state;
+        }
+        // return action;
+    }
+    const [speakerList, dispatch] = useReducer(speakerReducer, []);
+
+
+
     const [isLoading, setIsLoading] = useState(true);
 
     const context = useContext(ConfigContext);
@@ -28,7 +54,13 @@ const Speakers = ({}) => {
             const speakerListServerFilter = SpeakerData.filter(({sat, sun}) => {
                 return (speakingSaturday && sat) || (speakingSunday && sun);
             });
-            setSpeakerList(speakerListServerFilter);
+
+            // setSpeakerList(speakerListServerFilter);
+            // 4: switch to dispatch
+            dispatch({
+                type: "setSpeakerList",
+                data: speakerListServerFilter
+            })
         });
         return () => {
             console.log("cleanup");
