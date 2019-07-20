@@ -41,6 +41,8 @@ C:\react\pluralsight-course-using-react-hooks-my-trial>npm init -y
 C:\react\pluralsight-course-using-react-hooks-my-trial>npm install --save react react-dom next
 C:\react\pluralsight-course-using-react-hooks-my-trial>mkdir pages
 C:\react\pluralsight-course-using-react-hooks-my-trial>npm install eslint eslint-plugin-react react-hooks --save-dev
+C:\react\pluralsight-course-using-react-hooks-my-trial>npm i bootstrap react-toastify @zeit/next-css
+
 
 useRef - Primarily used to allow access directly to an element in the DOM.
 useEffect - use for componentWillUnmount, componentDidUnmount. React Hook useEffect causes side effects.
@@ -73,13 +75,27 @@ npm install eslint-plugin-react-hooks --save-dev
 }
 
 
+Why do we use the new set of hooks:
+1. This is going to be our starting point to learn the next four React Hooks, useContext, useReducer, useCallback, and useMemo.
+You may be thinking, why bother? Everything works. Are those Hooks just wasting my time?
+No, there are two primary things we're going after with these new Hooks. One is performance.
+That is, now even though you don't see it, each time we favor a speaker, all the other speakers get rerendered with JavaScript,
+meaning that if we had hundreds of speakers, your users of lower power laptops might find their fans coming on and
+some ugly unresponsiveness in the browser.
+
+2. we will add some configuration options to our app.js, such that we can enable program features,
+including showing the Saturday/Sunday selection checkboxes, as well as optionally displaying the sign-me-up-for-more- information textbox.
+
+3. Not only that, using these new Hooks gives you the opportunity to just do better, more reliable programming because they give a richer set of features.
 
 
+https://reactjs.org/blog/2018/03/29/react-v-16-3.html
+you would've passed properties around your components up and down complex component trees. It was ugly.
+It led to the design pattern commonly used known as prop drilling, and also to HOC, higher-order components,
+to basically use class inheritance as a way to pass data around, equally ugly and troublesome.
 
 
-
-
-
+https://reactjs.org/docs/context.html
 
 
 
