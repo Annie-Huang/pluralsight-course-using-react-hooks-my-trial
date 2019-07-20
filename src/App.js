@@ -11,14 +11,14 @@ const pageToShow = pageName => {
 };
 
 const configValue = {
-    showSpeakerSpeakingDays: true
+    showSignMeUp: true,
+    showSpeakerSpeakingDays: false
 };
 
 const App = ({pageName}) => {
     return (
         <ConfigContext.Provider value={configValue}>
             <div>{pageToShow(pageName)}</div>
-            ;
         </ConfigContext.Provider>
     );
 };
