@@ -59,6 +59,13 @@ pages/indexchangeonscrollhook.js
 src/ImageToggleOnScrollClass.js
 src/ImageToggleOnScrollHook.js
 
+Module 5:
+--------------
+page/emailvalidating.js
+src/EmailValidatingForm.js
+src/useInterval.js
+
+
 Module 3:
 -------------
 The rest of the file.
@@ -161,8 +168,8 @@ React Hooks only available in React Functional Components.
 React Hooks can manage state and lifecycle events.
 
 
-
-
+https://reactjs.org/docs/hooks-reference.html
+https://reactjs.org/docs/hooks-reference.html#usereducer
 
 
 
