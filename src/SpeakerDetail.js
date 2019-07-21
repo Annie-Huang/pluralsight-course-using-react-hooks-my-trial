@@ -4,14 +4,9 @@ import ImageToggleOnScroll from "./ImageToggleOnScroll";
 // and now that returns a cache, or a memoized version of our SpeakerDetail component to the calling component.
 // Now browsing to the page again, favoring a speaker, look at that, only one speaker detail is rendered.
 // const SpeakerDetail = ({
-const SpeakerDetail = React.memo( ({
-                           id,
-                           firstName,
-                           lastName,
-                           favorite,
-                           bio,
-                           onHeartFavoriteHandler
-                       }) => {
+const SpeakerDetail = React.memo(
+    // ({id, firstName, lastName, favorite, bio, onHeartFavoriteHandler }) => {
+    ({id, firstName, lastName, sat, sun, favorite, bio, onHeartFavoriteHandler }) => {
 
     // Turns out our React program behind the scenes is not just updating the heart on our speaker image,
     // but turns out it's rerendering all speaker images, including all hearts, light and dark.
@@ -31,7 +26,16 @@ const SpeakerDetail = React.memo( ({
                         data-sessionid={id}
                         className={favorite ? "heartredbutton" : "heartdarkbutton"}
                         onClick={e => {
-                            onHeartFavoriteHandler(e, !favorite);
+                            // onHeartFavoriteHandler(e, !favorite);
+                            onHeartFavoriteHandler(e, {
+                                id,
+                                firstName,
+                                lastName,
+                                favorite,
+                                bio,
+                                sat,
+                                sun
+                            });
                         }}
                     />
                     <span>

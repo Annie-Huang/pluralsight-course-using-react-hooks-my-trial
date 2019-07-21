@@ -9,6 +9,7 @@ import SpeakerDetail from "./SpeakerDetail";
 import {ConfigContext} from "./App";
 import speakerReducer from "./speakerReducer";
 import useAxiosFetch from "./useAxiosFetch";
+import axios from 'axios';
 
 const Speakers = ({}) => {
     // Part 3:
@@ -58,14 +59,25 @@ const Speakers = ({}) => {
     const handleChangeSunday = () => {
         setSpeakingSunday(!speakingSunday);
     };
-    const heartFavoriteHandler = useCallback((e, favoriteValue) => {
+    // Part B:
+    // const heartFavoriteHandler = useCallback((e, favoriteValue) => {
+    const heartFavoriteHandler = useCallback((e, speakerRec) => {
         e.preventDefault();
-        const sessionId = parseInt(e.target.attributes["data-sessionid"].value);
+        // const sessionId = parseInt(e.target.attributes["data-sessionid"].value);
+        //
+        // dispatch({
+        //     type: favoriteValue ? "favorite" : "unfavorite",
+        //     sessionId
+        // })
 
-        dispatch({
-            type: favoriteValue ? "favorite" : "unfavorite",
-            sessionId
-        })
+        const toggledRec = { ...speakerRec, favorite: !speakerRec.favorite };
+        axios.put(`http://localhost:4000/speakers/${speakerRec.id}`, toggledRec)
+            .then(function(response) {
+                updateDataRecord(toggledRec);
+            })
+            .catch(function(error) {
+                console.log(error);
+            });
 
         //console.log("changing session favorte to " + favoriteValue);
     }, []);
@@ -100,6 +112,27 @@ const Speakers = ({}) => {
 
     if (isLoading) return <div>Loading...</div>;
 
+    // {speakerListFiltered.map(
+    //     ({id, firstName, lastName, bio, favorite}) => {
+    //         return (
+    //             <SpeakerDetail
+    //                 key={id}
+    //                 id={id}
+    //                 favorite={favorite}
+    //                 onHeartFavoriteHandler={heartFavoriteHandler}
+    //                 firstName={firstName}
+    //                 lastName={lastName}
+    //                 bio={bio}
+    //             />
+    //         );
+    //     }
+    // )}
+    // Part A: Now though, we want to update not only what is displayed on the page, but also the full speaker record
+    // by posting that full speaker record to our REST server, which means we need the full speaker record passed up
+    // from the speakerDetail component. Previously, we passed all the attributes into the speaker record in our
+    // render section of Speakers.js, except for the Booleans sat and sun, which are the attributes that indicate
+    // whether the particular speaker is speaking on Saturday, Sunday, or both. We just need to add these here so
+    // the SpeakerDetail page has them and can return them back from the click event on the speaker favorite button.
     return (
         <div>
             <Header/>
@@ -136,7 +169,7 @@ const Speakers = ({}) => {
                 <div className="row">
                     <div className="card-deck">
                         {speakerListFiltered.map(
-                            ({id, firstName, lastName, bio, favorite}) => {
+                            ({id, firstName, sat, sun, lastName, bio, favorite}) => {
                                 return (
                                     <SpeakerDetail
                                         key={id}
@@ -146,6 +179,8 @@ const Speakers = ({}) => {
                                         firstName={firstName}
                                         lastName={lastName}
                                         bio={bio}
+                                        sat={sat}
+                                        sun={sun}
                                     />
                                 );
                             }
