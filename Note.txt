@@ -53,6 +53,11 @@ https://en.wikipedia.org/wiki/Memoization:
 In computing, memoization or memoisation is an optimization technique used primarily to speed up computer programs
 by storing the results of expensive function calls and returning the cached result when the same inputs occur again.
 
+useContext -  That gave us the ability to pass data, config data in our example, down the component tree without prop drilling,
+useReducer - gave us a nice way to organize our state management,
+useCallback - gave us a nice performance gain by not having all our speaker detail pages have to rerender on every button click of any speaker,
+useMemo - to cache some data on our client, saving some compute time on our app and hopefully making it more responsive in the process.
+
 
 http://localhost:3000/
 http://localhost:3000/ImageChangeOnMouseOver
