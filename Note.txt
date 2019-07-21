@@ -13,6 +13,9 @@ https://nextjs.org/learn/basics/getting-started/setup
 lecture note: C:\react\using-react-hooks
 
 
+C:\react\pluralsight-course-using-react-hooks-my-trial>npm run json-server
+C:\react\pluralsight-course-using-react-hooks-my-trial>npm run dev
+
 
 http://localhost:3000/
 http://localhost:3000/ImageChangeOnMouseOver
@@ -27,6 +30,18 @@ http://localhost:3000/indexchangeonmouseoverhook
 http://localhost:3000/indexchangeonmouseoverclass
 http://localhost:3000/indexchangeonscrollhook
 http://localhost:3000/indexchangeonscrollclass
+
+
+  Resources
+  http://localhost:4000/speakers
+  http://localhost:4000/isloggedinyes1
+  http://localhost:4000/isloggedinyes
+  http://localhost:4000/isloggedinno
+
+  Home
+  http://localhost:4000
+
+
 
 
 File list:
@@ -77,6 +92,9 @@ and The rest of the file set.
 
 
 ==============================================================
+==============================================================
+==============================================================
+
 Recommended Toolchains
 The React team primarily recommends these solutions:
 
@@ -108,6 +126,7 @@ C:\react\pluralsight-course-using-react-hooks-my-trial>npm install eslint eslint
 C:\react\pluralsight-course-using-react-hooks-my-trial>npm i bootstrap react-toastify @zeit/next-css
 C:\react\pluralsight-course-using-react-hooks-my-trial>npm install eslint-plugin-react-hooks --save-dev
 C:\react\pluralsight-course-using-react-hooks-my-trial>npm install axios --save
+C:\react\pluralsight-course-using-react-hooks-my-trial>npm install json-server --save
 
 
 useRef - Primarily used to allow access directly to an element in the DOM.
