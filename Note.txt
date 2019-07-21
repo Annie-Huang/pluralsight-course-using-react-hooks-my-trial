@@ -12,6 +12,27 @@ https://nextjs.org/learn/basics/getting-started/setup
 
 lecture note: C:\react\using-react-hooks
 
+File list:
+Module 2:
+------------
+pages/ImageChangeOnMouseOver.js
+pages/ImageChangeOnScroll.js
+pages/index-module2-backup.js
+src/ImageToggleOnMouseOver.js
+src/ImageToggleOnScroll.js
+
+Module 4:
+--------------
+pages/indexclass.js
+pages/indexhook.js
+src/InputElementClass.js
+src/InputElementHook.js
+
+Module 3:
+-------------
+
+
+
 ==============================================================
 Recommended Toolchains
 The React team primarily recommends these solutions:
@@ -63,6 +84,9 @@ http://localhost:3000/
 http://localhost:3000/ImageChangeOnMouseOver
 http://localhost:3000/ImageChangeOnScroll
 http://localhost:3000/speakers
+http://localhost:3000/index-module2-backup
+http://localhost:3000/indexhook
+
 
 
 https://reactjs.org/docs/hooks-rules.html
