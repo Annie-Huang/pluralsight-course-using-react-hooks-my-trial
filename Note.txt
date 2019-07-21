@@ -25,6 +25,8 @@ http://localhost:3000/indexhookhistory
 http://localhost:3000/indexclasshistory
 http://localhost:3000/indexchangeonmouseoverhook
 http://localhost:3000/indexchangeonmouseoverclass
+http://localhost:3000/indexchangeonscrollhook
+http://localhost:3000/indexchangeonscrollclass
 
 
 File list:
@@ -52,6 +54,10 @@ pages/indexchangeonmouseoverhook.js
 src/ImageToggleOnMouseOverClass.js
 src/ImageToggleOnMouseOverHook.js
 
+pages/indexchangeonscrollclass.js
+pages/indexchangeonscrollhook.js
+src/ImageToggleOnScrollClass.js
+src/ImageToggleOnScrollHook.js
 
 Module 3:
 -------------
