@@ -13,7 +13,20 @@ const Speakers = ({}) => {
     const [speakingSaturday, setSpeakingSaturday] = useState(true);
     const [speakingSunday, setSpeakingSunday] = useState(true);
 
+    // const [speakerList, setSpeakerList] = useState([]);
+
+    // 1: The blow is exactly the same as above...
+    // const [speakerList, setSpeakerList] = useReducer((state,action) => action, []);
+
+    // // 2: Change "(state, action) => action" to...
+    // function speakerReducer(state, action) {
+    //     return action;
+    // }
+    // const [speakerList, setSpeakerList] = useReducer(speakerReducer, []);
+
     const [speakerList, dispatch] = useReducer(speakerReducer, []);
+
+
     const [isLoading, setIsLoading] = useState(true);
 
     const context = useContext(ConfigContext);
@@ -30,6 +43,8 @@ const Speakers = ({}) => {
                 return (speakingSaturday && sat) || (speakingSunday && sun);
             });
 
+            // setSpeakerList(speakerListServerFilter);
+            // 4: switch to dispatch - part 1
             dispatch({
                 type: "setSpeakerList",
                 data: speakerListServerFilter
@@ -44,6 +59,21 @@ const Speakers = ({}) => {
         setSpeakingSaturday(!speakingSaturday);
     };
 
+    // const speakerListFiltered = isLoading
+    //     ? []
+    //     : speakerList
+    //         .filter(
+    //             ({sat, sun}) => (speakingSaturday && sat) || (speakingSunday && sun)
+    //         )
+    //         .sort(function (a, b) {
+    //             if (a.firstName < b.firstName) {
+    //                 return -1;
+    //             }
+    //             if (a.firstName > b.firstName) {
+    //                 return 1;
+    //             }
+    //             return 0;
+    //         });
     const newSpeakerList = useMemo(() => speakerList
         .filter(
             ({sat, sun}) => (speakingSaturday && sat) || (speakingSunday && sun)
@@ -66,10 +96,38 @@ const Speakers = ({}) => {
         setSpeakingSunday(!speakingSunday);
     };
 
+    // const heartFavoriteHandler = (e, favoriteValue) => {
+    //     e.preventDefault();
+    //     const sessionId = parseInt(e.target.attributes["data-sessionid"].value);
+    //     // setSpeakerList(speakerList.map(item => {
+    //     //     if (item.id === sessionId) {
+    //     //         item.favorite = favoriteValue;
+    //     //         return item;
+    //     //     }
+    //     //     return item;
+    //     // }));
+    //     // 5: switch to dispatch - part 2
+    //     //    It works because when clicking the color of the heart, its colors stays.
+    //     dispatch({
+    //         type: favoriteValue ? "favorite" : "unfavorite",
+    //         sessionId
+    //     })
+    //
+    //     //console.log("changing session favorte to " + favoriteValue);
+    // };
+    // B: Solution - use useCallback
     const heartFavoriteHandler = useCallback((e, favoriteValue) => {
         e.preventDefault();
         const sessionId = parseInt(e.target.attributes["data-sessionid"].value);
-
+        // setSpeakerList(speakerList.map(item => {
+        //     if (item.id === sessionId) {
+        //         item.favorite = favoriteValue;
+        //         return item;
+        //     }
+        //     return item;
+        // }));
+        // 5: switch to dispatch - part 2
+        //    It works because when clicking the color of the heart, its colors stays.
         dispatch({
             type: favoriteValue ? "favorite" : "unfavorite",
             sessionId
@@ -80,6 +138,10 @@ const Speakers = ({}) => {
 
     if (isLoading) return <div>Loading...</div>;
 
+
+    // A: Problem - If we look how we call the heartFavoriteHandler, notice that every time the page renders,
+    // we pass the handler to the speaker detail page. React doesn't know that that function is not changing,
+    // so it rerenders that component again, just in case.
     return (
         <div>
             <Header/>

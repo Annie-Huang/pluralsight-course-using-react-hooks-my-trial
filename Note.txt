@@ -69,7 +69,11 @@ src/useAxiosFetch.js
 
 Module 3:
 -------------
-The rest of the file.
+Speakers-Part1(withManyCommentedOutCode).js is the first part of Speaker.js
+Speakers.js is second part.
+There are too many comment and making Speakers.js too difficult to read so I clean it a bit.
+
+and The rest of the file set.
 
 
 ==============================================================
