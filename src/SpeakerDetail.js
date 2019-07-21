@@ -1,4 +1,6 @@
+import {useContext} from "react";
 import ImageToggleOnScroll from "./ImageToggleOnScroll";
+import {ConfigContext} from "./App";
 
 // C: Solution - When we define our speaker detail for export, we wrap our functional component in React.memo,
 // and now that returns a cache, or a memoized version of our SpeakerDetail component to the calling component.
@@ -12,6 +14,8 @@ const SpeakerDetail = React.memo(
     // but turns out it's rerendering all speaker images, including all hearts, light and dark.
     console.log(`SpeakerDetail:${id} ${firstName} ${lastName} ${favorite}`);
 
+    const context = useContext(ConfigContext);
+
     return (
         <div className="card col-4 cardmin">
             <ImageToggleOnScroll
@@ -22,6 +26,7 @@ const SpeakerDetail = React.memo(
             />
             <div className="card-body">
                 <h4 className="card-title">
+                    {context.loggedInUserEmail ? (
                     <button
                         data-sessionid={id}
                         className={favorite ? "heartredbutton" : "heartdarkbutton"}
@@ -38,11 +43,11 @@ const SpeakerDetail = React.memo(
                             });
                         }}
                     />
+                    ) :  null}
                     <span>
-            {firstName} {lastName}
-          </span>
+                        {firstName} {lastName}
+                    </span>
                 </h4>
-
                 <span>{bio}</span>
             </div>
         </div>

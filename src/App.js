@@ -13,7 +13,7 @@ const pageToShow = pageName => {
 const configValue = {
     showSignMeUp: true,
     showSpeakerSpeakingDays: true,
-    loggedInUserEmail: ''
+    loggedInUserEmail: 'peter@test.co'
 };
 
 const App = ({pageName}) => {
