@@ -110,8 +110,8 @@ to basically use class inheritance as a way to pass data around, equally ugly an
 https://reactjs.org/docs/context.html
 
 
-
-
+React Hooks only available in React Functional Components.
+React Hooks can manage state and lifecycle events.
 
 
 
