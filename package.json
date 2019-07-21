@@ -22,6 +22,7 @@
   "homepage": "https://github.com/Annie-Huang/pluralsight-course-using-react-hooks-my-trial#readme",
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
+    "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
     "next": "^9.0.2",
     "react": "^16.8.6",
