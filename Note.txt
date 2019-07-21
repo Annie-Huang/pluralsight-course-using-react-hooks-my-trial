@@ -12,6 +12,21 @@ https://nextjs.org/learn/basics/getting-started/setup
 
 lecture note: C:\react\using-react-hooks
 
+
+
+http://localhost:3000/
+http://localhost:3000/ImageChangeOnMouseOver
+http://localhost:3000/ImageChangeOnScroll
+http://localhost:3000/speakers
+http://localhost:3000/index-module2-backup
+http://localhost:3000/indexhook
+http://localhost:3000/indexclass
+http://localhost:3000/indexhookhistory
+http://localhost:3000/indexclasshistory
+http://localhost:3000/indexchangeonmouseoverhook
+http://localhost:3000/indexchangeonmouseoverclass
+
+
 File list:
 Module 2:
 ------------
@@ -31,6 +46,12 @@ src/InputElementClass.js
 src/InputElementHook.js
 src/InputElementClassHistory.js
 src/InputElementHookHistory.js
+
+pages/indexchangeonmouseoverclass.js
+pages/indexchangeonmouseoverhook.js
+src/ImageToggleOnMouseOverClass.js
+src/ImageToggleOnMouseOverHook.js
+
 
 Module 3:
 -------------
@@ -83,16 +104,6 @@ useReducer - gave us a nice way to organize our state management,
 useCallback - gave us a nice performance gain by not having all our speaker detail pages have to rerender on every button click of any speaker,
 useMemo - to cache some data on our client, saving some compute time on our app and hopefully making it more responsive in the process.
 
-
-http://localhost:3000/
-http://localhost:3000/ImageChangeOnMouseOver
-http://localhost:3000/ImageChangeOnScroll
-http://localhost:3000/speakers
-http://localhost:3000/index-module2-backup
-http://localhost:3000/indexhook
-http://localhost:3000/indexclass
-http://localhost:3000/indexhookhistory
-http://localhost:3000/indexclasshistory
 
 
 https://reactjs.org/docs/hooks-rules.html
