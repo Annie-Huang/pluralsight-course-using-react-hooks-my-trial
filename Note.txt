@@ -25,12 +25,16 @@ Module 4:
 --------------
 pages/indexclass.js
 pages/indexhook.js
+pages/indexclasshistory.js
+pages/indexhookhistory.js
 src/InputElementClass.js
 src/InputElementHook.js
+src/InputElementClassHistory.js
+src/InputElementHookHistory.js
 
 Module 3:
 -------------
-
+The rest of the file.
 
 
 ==============================================================
@@ -86,7 +90,9 @@ http://localhost:3000/ImageChangeOnScroll
 http://localhost:3000/speakers
 http://localhost:3000/index-module2-backup
 http://localhost:3000/indexhook
-
+http://localhost:3000/indexclass
+http://localhost:3000/indexhookhistory
+http://localhost:3000/indexclasshistory
 
 
 https://reactjs.org/docs/hooks-rules.html
