@@ -16,7 +16,8 @@ lecture note: C:\react\using-react-hooks
 C:\react\pluralsight-course-using-react-hooks-my-trial>npm run json-server
 C:\react\pluralsight-course-using-react-hooks-my-trial>npm run dev
 C:\react\pluralsight-course-using-react-hooks-my-trial>node server.js   << run it in server side.
-
+Username: peter@test.co
+Passowrd: peter@test.co
 
 http://localhost:3000/
 http://localhost:3000/ImageChangeOnMouseOver
