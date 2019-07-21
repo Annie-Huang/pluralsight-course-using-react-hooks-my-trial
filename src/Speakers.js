@@ -55,6 +55,20 @@ const Speakers = ({}) => {
     const handleChangeSaturday = () => {
         setSpeakingSaturday(!speakingSaturday);
     };
+    const handleChangeSunday = () => {
+        setSpeakingSunday(!speakingSunday);
+    };
+    const heartFavoriteHandler = useCallback((e, favoriteValue) => {
+        e.preventDefault();
+        const sessionId = parseInt(e.target.attributes["data-sessionid"].value);
+
+        dispatch({
+            type: favoriteValue ? "favorite" : "unfavorite",
+            sessionId
+        })
+
+        //console.log("changing session favorte to " + favoriteValue);
+    }, []);
 
     // Part 4
     // const newSpeakerList = useMemo(() => speakerList
@@ -83,23 +97,6 @@ const Speakers = ({}) => {
                 {errorMessage}&nbsp;"Make sure you have launched "npm run json-server"
             </div>
         );
-
-
-    const handleChangeSunday = () => {
-        setSpeakingSunday(!speakingSunday);
-    };
-
-    const heartFavoriteHandler = useCallback((e, favoriteValue) => {
-        e.preventDefault();
-        const sessionId = parseInt(e.target.attributes["data-sessionid"].value);
-
-        dispatch({
-            type: favoriteValue ? "favorite" : "unfavorite",
-            sessionId
-        })
-
-        //console.log("changing session favorte to " + favoriteValue);
-    }, []);
 
     if (isLoading) return <div>Loading...</div>;
 
